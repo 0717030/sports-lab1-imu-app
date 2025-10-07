@@ -1,0 +1,9 @@
+# GitHub Issue Template configuration
+# 這個檔案控制「New issue」畫面顯示的模板選單
+
+blank_issues_enabled: false
+
+contact_links:
+  - name: 🗒 Other / General Question
+    url: https://github.com/yuxuanjian/sports-lab1-imu-app
+    about: 如果你的問題不是 bug 或新功能建議，請在 Discussions 區發問。

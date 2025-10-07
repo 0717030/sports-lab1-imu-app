@@ -1,19 +1,15 @@
 # flutter_application_1
-
-main.dart 在 lib底下
-
-
-
-請 GPT 加了以下的界面和功能:
-
-    1.多少頻率錄製多少秒，開始和手動結束
-    2.分享數據 csv (可以存到雲端硬碟或是用 gmail 寄出)
-    3.x, y, z 軸加速度、角速度、磁力計觀測值對時間的圖(還沒有圖片存檔功能)
-    4.動作提示卡
-    5.新增scroll bar解決pixel overflow問題
-    6.圖片存檔功能
-
-目前沒做的:
-
-    1.也許輸出的命名可以自定義改一下
-
+```
+lib/
+├─ main.dart                    # App 入口，掛上 RecorderPage
+├─ models/
+│  ├─ sample.dart               # ImuSample 資料模型（從 main.dart 抽出）
+│  └─ series_bundles.dart       # 裝三個序列與 Y 軸標籤
+├─ services/
+│  ├─ sensor_service.dart       # 訂閱 sensors_plus、維護最新值、定時寫入 buffer、start/stop
+│  └─ integration_service.dart  # 數值積分：a→v、v→x、ω→θ（沿用你原本梯形法＋t0修正）
+├─ widgets/
+│  └─ imu_chart.dart            # 可重用三軸折線圖 + 離屏繪圖 renderLinesToImage()
+└─ pages/
+   └─ recorder_page.dart        # UI（滑桿/按鈕/圖例/提示卡/圖表）＋ 分享 CSV/ 分享所有 PNG 邏輯
+```
